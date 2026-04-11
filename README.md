@@ -101,3 +101,9 @@ Implement stronger defenses to prevent future attacks:
 
 •	Conduct regular penetration testing and vulnerability scans.
 
+
+
+
+
+## Get the full Wazuh, and Suricata setup in my repository and troubleshooting guides also if necessary 
+
