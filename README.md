@@ -105,5 +105,5 @@ Implement stronger defenses to prevent future attacks:
 
 
 
-## Get the full Wazuh, and Suricata setup in my repository and troubleshooting guides also if necessary 
+## Get the full Wazuh, and Suricata setup in my code section and troubleshooting guides also if necessary 
 
