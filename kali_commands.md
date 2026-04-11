@@ -1,4 +1,4 @@
-# Kali Linux Cybersecurity Labs
+# Suricata setup Cybersecurity Labs
 
 # Configure a firewall to block unauthorized access and allow only legitimate traffic.
 ## For Linux Servers.
