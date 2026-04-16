@@ -42,15 +42,15 @@ Kali Linux      Used to simulate attacker activity
 
 **Data Flow**
 
-  1.	Windows Server generates system and security logs.
+1	Windows Server generates system and security logs.
   
-  2.	The Wazuh Agent collects the logs.
+2	The Wazuh Agent collects the logs.
 	
-  3.	Logs are forwarded to the Wazuh Manager.
+3	Logs are forwarded to the Wazuh Manager.
 	
-  4.	Wazuh rules analyze logs and generate alerts.
+4	Wazuh rules analyze logs and generate alerts.
 	
-  5.	Alerts appear in the Wazuh dashboard for SOC investigation.
+5	Alerts appear in the Wazuh dashboard for SOC investigation.
 
 
 
@@ -92,11 +92,11 @@ An attacker from a **Kali Linux** machine attempts to brute force RDP login cred
 
 Wazuh detects:
 
-	1	Multiple failed login attempts
+1  Multiple failed login attempts
 	
-	2	Event log authentication failures
+2	Event log authentication failures
 	
-	3	Suspicious login patterns
+3	Suspicious login patterns
 
 These alerts are then investigated by the SOC analyst.
 
@@ -108,11 +108,12 @@ When an alert is triggered, the SOC analyst should perform the following investi
 **Step 1: Review Alert Details**
 
 Check:
-	1	Alert severity level
+
+1	Alert severity level
 	
-	2	Timestamp
+2	Timestamp
 	
-	3	Source IP address
+3	Source IP address
 	
 	4	Target host
 	
@@ -122,11 +123,11 @@ Check:
 
 Determine if the source IP is:
 
-	1	Internal
+1	Internal
 	
-	2	External
+2	External
 	
-	3	Known attacker simulation machine
+3	Known attacker simulation machine
 
 Example reconnaissance tool:
 
@@ -137,30 +138,30 @@ Example reconnaissance tool:
 
 Investigate:
 
-	1	Windows Event Logs
+1	Windows Event Logs
 	
-	2	Failed login attempts
+2	Failed login attempts
 	
-	3	Successful login after multiple failures
+3	Successful login after multiple failures
 
 Relevant log sources:
 
-	1	Windows Security Logs
+1	Windows Security Logs
 	
-	2	Wazuh alert logs
+2	Wazuh alert logs
 	
 
 **Step 4: Confirm Malicious Behavior**
 
 Indicators include:
 
-	1	Repeated login failures
+1	Repeated login failures
 	
-	2	Unusual login locations
+2	Unusual login locations
 	
-	3	Rapid authentication attempts
-	
-	4	Port scanning behavior
+3	Rapid authentication attempts
+
+4	Port scanning behavior
 
 Map activity to **MITRE ATT&CK** techniques.
 
@@ -181,11 +182,11 @@ Endpoint Containment
 
 Possible actions:
 
-	1	Block attacker IP
+1	Block attacker IP
 	
-	2	Disable compromised user accounts
-	
-	3	Isolate affected system
+2	Disable compromised user accounts
+
+3	Isolate affected system
 
 Firewall rule example:
 
@@ -201,13 +202,13 @@ Wazuh can automatically block malicious IP addresses using active response rules
 After containment, the root cause must be removed.
 
 Actions may include:
-	1	Reset compromised passwords
+1	Reset compromised passwords
 	
-	2	Patch vulnerable services
+2	Patch vulnerable services
 	
-	3	Remove malicious processes
+3	Remove malicious processes
 	
-	4	Update firewall rules
+4	Update firewall rules
 
 Verify that no unauthorized persistence mechanisms exist.
 
@@ -218,18 +219,55 @@ Restore normal system operations.
 
 Steps include:
 
-	1	Re-enable services
+1	Re-enable services
 	
-	2	Monitor system logs closely
+2	Monitor system logs closely
 	
-	3	Confirm no ongoing malicious activity
+3	Confirm no ongoing malicious activity
 	
-	4	Validate security configurations
+4	Validate security configurations
 
 The system should remain under monitoring through Wazuh.
 
 
+## 8️⃣ Post-Incident Review
 
+After the incident has been resolved, conduct a review.
+
+Questions to evaluate:
+
+1	How was the attack detected?
+
+2	How quickly was it contained?
+
+3	Were alerts generated effectively?
+
+4	Are new detection rules required?
+
+Document improvements for the SOC detection workflow.
+
+
+## 9️⃣ Future Improvements
+
+This lab environment will be expanded to include additional security monitoring capabilities such as:
+	
+1	Network intrusion detection using Suricata
+
+2	Threat intelligence integration
+
+3	Automated response mechanisms
+
+4	Additional attacker simulations
+
+
+
+## NOTE: Disclaimer
+
+This project is for educational and research purposes only.
+
+All attack simulations were performed in a controlled lab environment hosted in Amazon Web Services.
+
+No real systems or networks were targeted.
 
 
 ## Get the full Wazuh, and Suricata setup in my code section and troubleshooting guides also if necessary 
