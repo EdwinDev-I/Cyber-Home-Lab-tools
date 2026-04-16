@@ -1,64 +1,74 @@
-# Cyber-Home-Security-Playbook
+# Incident Response Playbook 📚
 
-# For Incidence Response
-
-
-
-## 1️⃣ Identify the Incident
-
-First confirm that a breach is actually happening.
-
-•	Check alerts from the Wazuh, Splunk, or other Security Information and Event Management (SIEM) tools.
-
-•	Review logs for:
-
-•	Suspicious logins
-
-•	Unusual outbound traffic
-
-•	Privilege escalation attempts
-
-•	Data exfiltration activities
-
-•	Determine:
-
-•	Which systems are affected
-
-•	How the attacker entered
-
-•	What data is being stolen
+# Wazuh SOC Detection Lab (AWS Windows Server)
 
 
 
-## 2️⃣ Contain the Attack
+## Overview
 
-Stop the attacker from spreading further.
+This repository contains an Incident Response Playbook developed for a Security Operations Center (SOC) detection lab built using Wazuh on Amazon Web Services.
 
-•	Disconnect compromised systems from the network immediately.
+The purpose of this playbook is to document the standard procedures for detecting, investigating, containing, and responding to security incidents generated within the lab environment.
 
-•	Disable compromised accounts and credentials.
+The lab monitors a Windows Server endpoint with a Wazuh Agent, while simulated attacks are launched from Kali Linux.
 
-•	Block malicious IP addresses using a firewall or IDS like Suricata.
+This playbook focuses on detecting and responding to:
 
-•	Apply network segmentation to isolate critical systems.
+	•	Brute-force authentication attempts
+  
+	•	Network reconnaissance scanning
+	
+  •	Suspicious authentication activity
+	
+  •	Unauthorized access attempts
 
-This prevents the attacker from continuing to steal data.
+The detection rules and alerts generated align with techniques from the MITRE ATT&CK.
 
 
 
-## 3️⃣ Eradicate the Threat
+## 1️⃣ Lab Architecture
 
-Remove the attacker and malicious artifacts.
+**Infrastructure**
 
-•	Scan systems with antivirus and Endpoint Detection and Response (EDR) tools.
+Component       Description
 
-•	Remove malware, backdoors, or unauthorized software.
+AWS Cloud       Hosts the Windows Server envirinment
 
-•	Patch vulnerabilities that the attacker exploited.
+Wazuh Manager   Centralized log monitoring and analysis
 
-•	Reset all compromised passwords and keys.
+Wazuh Agent     Installed on Windows Server
 
-•	Rebuild or reimage infected machines if necessary.
+Kali Linux      Used to simulate attacker activity
+
+**Data Flow**
+
+	1.	Windows Server generates system and security logs.
+  
+	2.	The Wazuh Agent collects the logs.
+	
+  3.	Logs are forwarded to the Wazuh Manager.
+	
+  4.	Wazuh rules analyze logs and generate alerts.
+	
+  5.	Alerts appear in the Wazuh dashboard for SOC investigation.
+
+
+
+## 2️⃣ Incident Response Lifecycle
+
+The incident response workflow follows the standard SOC methodology.
+
+1️⃣ Preparation
+
+2️⃣ Detection and Analysis
+
+3️⃣ Containment
+
+4️⃣ Eradication
+
+5️⃣ Recovery
+
+6️⃣ Lessons Learned
 
 
 
