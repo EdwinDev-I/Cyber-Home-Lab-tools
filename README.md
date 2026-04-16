@@ -14,13 +14,13 @@ The lab monitors a Windows Server endpoint with a Wazuh Agent, while simulated a
 
 This playbook focuses on detecting and responding to:
 
-•	Brute-force authentication attempts
+1	Brute-force authentication attempts
   
-•	Network reconnaissance scanning
+2	Network reconnaissance scanning
 	
-•	Suspicious authentication activity
+3	Suspicious authentication activity
 	
-•	Unauthorized access attempts
+4	Unauthorized access attempts
 
 The detection rules and alerts generated align with techniques from the MITRE ATT&CK.
 
@@ -92,11 +92,11 @@ An attacker from a **Kali Linux** machine attempts to brute force RDP login cred
 
 Wazuh detects:
 
-	•	Multiple failed login attempts
+	1	Multiple failed login attempts
 	
-	•	Event log authentication failures
+	2	Event log authentication failures
 	
-	•	Suspicious login patterns
+	3	Suspicious login patterns
 
 These alerts are then investigated by the SOC analyst.
 
@@ -108,25 +108,25 @@ When an alert is triggered, the SOC analyst should perform the following investi
 **Step 1: Review Alert Details**
 
 Check:
-	•	Alert severity level
+	1	Alert severity level
 	
-	•	Timestamp
+	2	Timestamp
 	
-	•	Source IP address
+	3	Source IP address
 	
-	•	Target host
+	4	Target host
 	
-	•	Rule description
+	5	Rule description
 
 **Step 2: Identify Source of Activity**
 
 Determine if the source IP is:
 
-	•	Internal
+	1	Internal
 	
-	•	External
+	2	External
 	
-	•	Known attacker simulation machine
+	3	Known attacker simulation machine
 
 Example reconnaissance tool:
 
@@ -137,30 +137,30 @@ Example reconnaissance tool:
 
 Investigate:
 
-	•	Windows Event Logs
+	1	Windows Event Logs
 	
-	•	Failed login attempts
+	2	Failed login attempts
 	
-	•	Successful login after multiple failures
+	3	Successful login after multiple failures
 
 Relevant log sources:
 
-	•	Windows Security Logs
+	1	Windows Security Logs
 	
-	•	Wazuh alert logs
+	2	Wazuh alert logs
 	
 
 **Step 4: Confirm Malicious Behavior**
 
 Indicators include:
 
-	•	Repeated login failures
+	1	Repeated login failures
 	
-	•	Unusual login locations
+	2	Unusual login locations
 	
-	•	Rapid authentication attempts
+	3	Rapid authentication attempts
 	
-	•	Port scanning behavior
+	4	Port scanning behavior
 
 Map activity to **MITRE ATT&CK** techniques.
 
@@ -181,11 +181,11 @@ Endpoint Containment
 
 Possible actions:
 
-	•	Block attacker IP
+	1	Block attacker IP
 	
-	•	Disable compromised user accounts
+	2	Disable compromised user accounts
 	
-	•	Isolate affected system
+	3	Isolate affected system
 
 Firewall rule example:
 
@@ -194,6 +194,41 @@ Firewall rule example:
 Wazuh Active Response (Optional)
 
 Wazuh can automatically block malicious IP addresses using active response rules.
+
+
+## 6️⃣ Eradication
+
+After containment, the root cause must be removed.
+
+Actions may include:
+	1	Reset compromised passwords
+	
+	2	Patch vulnerable services
+	
+	3	Remove malicious processes
+	
+	4	Update firewall rules
+
+Verify that no unauthorized persistence mechanisms exist.
+
+
+## 7️⃣ Recovery
+
+Restore normal system operations.
+
+Steps include:
+
+	1	Re-enable services
+	
+	2	Monitor system logs closely
+	
+	3	Confirm no ongoing malicious activity
+	
+	4	Validate security configurations
+
+The system should remain under monitoring through Wazuh.
+
+
 
 
 
