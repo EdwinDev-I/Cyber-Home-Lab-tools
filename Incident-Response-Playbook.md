@@ -115,9 +115,9 @@ Check:
 	
 3	Source IP address
 	
-	4	Target host
+4	Target host
 	
-	5	Rule description
+5	Rule description
 
 **Step 2: Identify Source of Activity**
 
