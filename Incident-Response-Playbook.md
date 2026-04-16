@@ -267,8 +267,5 @@ This project is for educational and research purposes only.
 
 All attack simulations were performed in a controlled lab environment hosted in Amazon Web Services.
 
-No real systems or networks were targeted.
-
-
-## Get the full Wazuh, and Suricata setup in my code section and troubleshooting guides also if necessary 
+No real systems or networks were targeted. 
 
