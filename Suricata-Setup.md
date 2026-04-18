@@ -38,7 +38,7 @@
    sudo systemctl status suricata
 
 ## Step7: if needed check logs
-   sudo tail -f /var/log suricata/fast.log
+   sudo tail -f /var/log/suricata/fast.log
 
 
 # Troubleshooting quide if necessary
