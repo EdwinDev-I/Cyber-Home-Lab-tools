@@ -92,9 +92,7 @@ sudo systemctl status wazuh-indexer
 sudo systemctl status wazuh-dashboard
 ```
 All should show:
-```bash
-active (running)
-```
+`active (running)`
 
 
 ---
